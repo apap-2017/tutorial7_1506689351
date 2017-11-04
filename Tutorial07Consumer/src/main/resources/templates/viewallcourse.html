@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>View All Students</title>
+   
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></link>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="/js/datatable.js"></script>
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+		<script src="/js/jquery.js"></script>
+		<script type="text/javascript" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    </head>
+    <body>
+        <div th:replace="fragments/fragment :: header"></div>
+        <h1>All Students</h1>
+        
+    	<div>
+            <table id="myTable" class="display">
+            <thead>
+            <tr>
+	            <th>No</th>
+	            <th>Kode</th>
+		       	<th>Nama Matkul</th>
+		       	<th>Jumlah SKS</th>		       
+	       	</tr>
+            </thead>
+            <tbody>
+            <tr th:each="courses,iterationStatus: ${courses}">
+	            <td th:text="${iterationStatus.count}">No. 1</td>
+	            <td th:text="${courses.idCourse}">Student NPM</td>
+		       	<td th:text="${courses.name}">Student NPM</td>
+		       	<td th:text="${courses.credits}">Student Name</td>		       	
+	       	</tr>
+	       	</tbody>
+	       	</table>
+	       	<hr/>
+       	</div>
+    	<div th:replace="fragments/fragment :: footer"></div>
+	       
+    </body>
+</html>
